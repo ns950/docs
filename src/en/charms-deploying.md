@@ -14,7 +14,11 @@ relevant charm, so deploying can be straightforward and easy.
 In most cases, you will want to deploy charms by fetching them directly from the charm store. This ensures that you get the relevant, up to date version of the charm and "everything just works". To deploy a charm like this you can just
 specify:
 
-    juju deploy mysql
+<--TEST: bootstrap -->
+```
+juju deploy mysql
+```
+<--EXPECTS: -->
 
 Running this will do exactly what you expect - fetch the latest Juju charm for
 the series you are running and then use the bootstrap environment to initiate a
@@ -22,11 +26,17 @@ new instance and deploy MySQL
 
 Juju usefully supports a system of namespaces that means you can actually deploy charms from a variety of sources. The default source is the charm store. The above command is the same as running:
 
-    juju deploy cs:precise/mysql
+<-- TEST: bootstrap -->
+```
+juju deploy cs:precise/mysql
+```
+<--EXPECTS: service:mysql -->
 
 which follows the format:
 
-    <repository>:<series>/<service>
+```
+<repository>:<series>/<service>
+```
 
 # Deploying from a local repository
 
